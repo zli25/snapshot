@@ -1,0 +1,47 @@
+.DS_Store
+
+
+application/cache/*
+!application/cache/index.html
+!application/cache/.htaccess
+
+application/logs/*
+!application/logs/index.html
+!application/logs/.htaccess
+
+
+##### importante para poder comitar carpetas vacias
+##### hay que introducir un gitignore en cada carpeta que quieras vacia con:
+#####   *
+#####   !.gitignore
+ 
+!.gitignore
+ 
+ 
+##### Global files
+ 
+*.zip
+.svn
+.DS_Store
+thumbs.db
+ 
+ 
+##### Codeigniter files
+ 
+images/working
+*user_guide
+*system/logs/*
+*system/logs/log-*.php
+*system/logs/!index.html
+*system/cache/*
+*mailing/*
+ 
+*wsdls/*	
+ 
+ 
+##### Gananones
+ 
+*captcha/*
+fuera_de_servicio
+paginas_fuera_servicio
+fuera_servicio.html

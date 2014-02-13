@@ -1,0 +1,28 @@
+#holder{
+margin:10px;
+float:left;
+
+}
+
+h1 {margin-left:10px;}
+
+#forms {
+	margin:10px;
+	float:left;
+	font-size:24px;
+}
+
+button{
+	width:200px;
+	height:40px;
+	line-height:40px;
+	font-size:24px;
+
+}
+input {
+
+	height:40px;
+	line-height:24px;
+	font-size:24px;
+
+}
