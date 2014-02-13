@@ -44,16 +44,18 @@
 			{
 				$img_url0 = "http://www.snapshotserengeti.org/subjects/standard/".$img_base."_0.jpg";
 				$img_id0 = $img_base."_0";
-				echo "<div id='holder0'><img src='$img_url0' id='$img_id0'>  <button type='button' id='button0' style='float:left;'>choose image 1</button></div>";
+				echo "<div id='wrapper'>";
+				echo "<div data-id=0 id='holder0'><img src='$img_url0' id='$img_id0'>  <button type='button' id='button0' style='float:left;'>choose image 1</button></div>";
 				//echo "<button type='button' id='button0' style='float:left;'>choose image 0</button>";
 				$img_url1 = "http://www.snapshotserengeti.org/subjects/standard/".$img_base."_1.jpg";
 				$img_id1 = $img_base."_1";
-				echo "<div id='holder1'><img src='$img_url1' id='$img_id1'> <button type='button' id='button1' style='float:left;'>choose image 2</button></div>";
+				echo "<div data-id=1 id='holder1'><img src='$img_url1' id='$img_id1'> <button type='button' id='button1' style='float:left;'>choose image 2</button></div>";
 				//echo "<button type='button' id='button1' style='float:left;'>choose image 1</button>";
 				$img_url2 = "http://www.snapshotserengeti.org/subjects/standard/".$img_base."_2.jpg";
 				$img_id2 = $img_base."_2";
-				echo "<div id='holder2'><img src='$img_url2' id='$img_id2' ><button type='button' id='button2' style='float:left;'>choose image 3</button></div>";
+				echo "<div data-id=2 id='holder2'><img src='$img_url2' id='$img_id2' ><button type='button' id='button2' style='float:left;'>choose image 3</button></div>";
 				//echo "<button type='button' id='button2' style='float:left;'>choose image 2</button>";
+				echo "</div>";
 			}
 			
 		?>
@@ -83,6 +85,14 @@
 	<script language="Javascript">
 	
 		$(function(){
+
+            $('#wrapper').delegate('div', 'click', function(evt) {
+                //console.log(evt.currentTarget.getAttribute('data-id') );
+                var series_no = evt.currentTarget.getAttribute('data-id');
+                if (series_no) {
+				    $("#Series_Id").val(series_no);
+                }
+            });
 	
 			$('img').Jcrop({
 				onSelect: showCoords,
@@ -133,6 +143,7 @@
 			
 		function showCoords(c)
 		{
+            //console.log(c);
 			$('#x').val(c.x);
 			$('#y').val(c.y);
 			$('#x2').val(c.x2);

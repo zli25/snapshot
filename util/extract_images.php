@@ -21,7 +21,7 @@
 	foreach($data as $r)
 	{
 		$img_url = "http://www.snapshotserengeti.org/subjects/standard/".$r['img_base']."_".$r['series_no'].".jpg";
-		$img_name = $r['img_base']."_".$r['series_no']."_".$r['key_id'].".jpg";
+		$img_name = "../images/working/" . $r['img_base']."_".$r['series_no']."_".$r['key_id'].".jpg";
 		$w = $r['x2']-$r['x1'];
 		$h = $r['y2']-$r['y1'];
 		$src_img = imagecreatefromjpeg($img_url);
