@@ -13,51 +13,51 @@
 	<body>
 		<h1>Enjoy your marking!!!</h1>
 		<?php
-		
+
 			if($num_of_img==1)
 			{
 				$img_url = "http://www.snapshotserengeti.org/subjects/standard/".$img_base."_0.jpg";
 				$img_id = $img_base."_0";
-				echo "<div id='holder'>
+				echo "<div id='wrapper' >";
+				echo "<div data-id=0 id='holder'>
 						<img src='$img_url' id='$img_id'>
-						<button type='button' id='button0' style='float:left;'>choose image 1</button>
 					  </div>
 					";
-				//echo "<button type='button' id='button0' style='float:left;'>choose image 0</button>";
-				
-				
+				echo "</div>";
+
+
 			}
 			if($num_of_img==2)
 			{
 				$img_url0 = "http://www.snapshotserengeti.org/subjects/standard/".$img_base."_0.jpg";
 				$img_id0 = $img_base."_0";
-				echo "<div id='holder0'><img src='$img_url0' id='$img_id0'> <button type='button' id='button0' style='float:left;'>choose image 1</button></div>";
-				//echo "<button type='button' id='button0' style='float:left;'>choose image 0</button>";
+				echo "<div id='wrapper'>";
+				echo "<div data-id=0 id='holder' ><img src='$img_url0' id='$img_id0'> ";
 				$img_url1 = "http://www.snapshotserengeti.org/subjects/standard/".$img_base."_1.jpg";
 				$img_id1 = $img_base."_1";
-				echo "<div id='holder1'><img src='$img_url1' id='$img_id1'> <button type='button' id='button1' style='float:left;'>choose image 2</button></div>";
-				//echo "<button type='button' id='button1' style='float:left;'>choose image 1</button>";
-				
+				echo "<div data-id=1 id='holder'><img src='$img_url1' id='$img_id1'> </div>";
+				echo "</div>";
+
 			}
-			
+
 			if($num_of_img==3)
 			{
 				$img_url0 = "http://www.snapshotserengeti.org/subjects/standard/".$img_base."_0.jpg";
 				$img_id0 = $img_base."_0";
 				echo "<div id='wrapper'>";
-				echo "<div data-id=0 id='holder0'><img src='$img_url0' id='$img_id0'>  <button type='button' id='button0' style='float:left;'>choose image 1</button></div>";
-				//echo "<button type='button' id='button0' style='float:left;'>choose image 0</button>";
+				echo "<div data-id=0 id='holder'><img src='$img_url0' id='$img_id0'></div> ";
+				
 				$img_url1 = "http://www.snapshotserengeti.org/subjects/standard/".$img_base."_1.jpg";
 				$img_id1 = $img_base."_1";
-				echo "<div data-id=1 id='holder1'><img src='$img_url1' id='$img_id1'> <button type='button' id='button1' style='float:left;'>choose image 2</button></div>";
-				//echo "<button type='button' id='button1' style='float:left;'>choose image 1</button>";
+				echo "<div data-id=1 id='holder'><img src='$img_url1' id='$img_id1'> </div>";
+		
 				$img_url2 = "http://www.snapshotserengeti.org/subjects/standard/".$img_base."_2.jpg";
 				$img_id2 = $img_base."_2";
-				echo "<div data-id=2 id='holder2'><img src='$img_url2' id='$img_id2' ><button type='button' id='button2' style='float:left;'>choose image 3</button></div>";
-				//echo "<button type='button' id='button2' style='float:left;'>choose image 2</button>";
+				echo "<div data-id=2 id='holder'><img src='$img_url2' id='$img_id2' ></div>";
 				echo "</div>";
+				
 			}
-			
+
 		?>
 
 		<div id="forms">
@@ -98,23 +98,6 @@
 				onSelect: showCoords,
 				onChange: showCoords
 			});
-			
-			$("#button0").click(function(){
-			
-				$("#Series_Id").val("0");
-			});
-			
-			$("#button1").click(function(){
-			
-				$("#Series_Id").val("1");
-			});
-			
-			$("#button2").click(function(){
-		
-				$("#Series_Id").val("2");
-			});
-			
-			var series_no = $("#Series_Id").val();
 			
 			$('.submit_button').click(function(){
 				
