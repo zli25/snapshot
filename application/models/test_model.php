@@ -58,7 +58,10 @@
 			}
 			mysql_select_db("Snapshot", $con);
 			//$result = mysql_query("select count(*) from Image", $con);
+
 			$result = mysql_query("select * from Image where is_marked is NULL order by rand() limit 1", $con);
+			//$result = mysql_query("select * from Image where is_marked is NULL AND num_of_img=2 limit 1", $con);
+
 			$row = mysql_fetch_array($result);
 			return $row;
 		}

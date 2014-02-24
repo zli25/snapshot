@@ -37,7 +37,7 @@ class Test extends CI_Controller
 	{
 		$this->load->model("test_model");
 		$data = $this->test_model->get_img();
-		$img= array('img_base'=>$data[0], 'num_of_img'=>$data[1], 'answer'=>$data[2], 'is_marked'=>$data[3]);
+		$img = array('img_base'=>$data[0], 'num_of_img'=>$data[1], 'answer'=>$data[2], 'is_marked'=>$data[3]);
 		$this->load->view("test_view", $img);
 		
 	}
