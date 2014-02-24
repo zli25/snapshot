@@ -19,10 +19,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+        $this->load->model("test_model");
+        $data = $this->test_model->get_summary();
+        $this->load->view("summary", $data);
 	}
 }
 ?>
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

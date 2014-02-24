@@ -109,8 +109,26 @@
 			if(mysql_query("Alter table Boundingbox add column series_no CHAR(1)", $con))
 				echo "Success!";
 			mysql_close($con);
-		
+		}
 			
+
+		function get_summary()
+		{	
+			$sql = "SELECT count(*) as cnt FROM Image WHERE is_marked is not NULL";
+            $query = $this->db->query($sql, array());
+            $results = $query->result();
+            $cnt_marked = $results[0]->cnt;
+
+			$sql = "SELECT count(*) as cnt FROM Image WHERE is_marked is NULL";
+            $query = $this->db->query($sql, array());
+            $results = $query->result();
+            $cnt_unmarked = $results[0]->cnt;
+
+			$sql = "SELECT user, count(*) as cnt FROM Boundingbox GROUP BY user";
+            $query = $this->db->query($sql, array());
+            $results = $query->result();
+
+            return array("cnt_marked"=>$cnt_marked, "cnt_unmarked"=>$cnt_unmarked, "user_cnt_array"=>$results);
 		}
 		
 		
