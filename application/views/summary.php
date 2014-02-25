@@ -12,7 +12,8 @@ th{text-align:right}
 
 	</head>
 	<body>
-		
+
+
 <table>
 <tr>
 <th>Marked <td> <?php echo $cnt_marked ?>
@@ -33,6 +34,9 @@ foreach ($user_cnt_array as $user_cnt)
 ?>	
 
 </table>	
+
+<p>
+<a style="font-size:150%" href="<?php echo base_url(); ?>index.php/welcome/download">Download boundingbox csv</a>
 
 	</body>
 </html>

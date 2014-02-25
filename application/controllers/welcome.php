@@ -23,5 +23,22 @@ class Welcome extends CI_Controller {
         $data = $this->test_model->get_summary();
         $this->load->view("summary", $data);
 	}
+
+    public function download()
+    {
+        $this->load->dbutil();
+        $this->load->helper('download');
+
+        $query = $this->db->query("SELECT img_base, x1,y1,x2,y2,series_no FROM Boundingbox");
+        $delimiter = ",";
+        $csv_data = $this->dbutil->csv_from_result($query, $delimiter);
+        $csv_data = str_replace('"', "", $csv_data);
+
+        date_default_timezone_set('America/New_York');
+        $date = date('Y_m_d');
+        $csv_filename = "boundingbox_$date.csv";
+
+        force_download($csv_filename, $csv_data);
+    }
 }
 ?>
