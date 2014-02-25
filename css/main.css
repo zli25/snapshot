@@ -1,5 +1,5 @@
 .holder {
-    margin:10px;
+    margin:3px;
     float:left;
 }
 
@@ -10,7 +10,7 @@ h1 {
 #forms {
 	margin:10px;
 	float:left;
-	font-size:24px;
+	font-size:20px;
 }
 
 /*button{
@@ -22,5 +22,5 @@ h1 {
 input {
 	height:40px;
 	line-height:24px;
-	font-size:24px;
+	font-size:20px;
 }
