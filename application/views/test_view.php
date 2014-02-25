@@ -46,6 +46,7 @@
         
     
     <script language="Javascript">
+        var last_dataString = null;
     
         $(function(){
 
@@ -61,6 +62,11 @@
             $('#submit').click(function()
             {
                 var dataString = $('#data').serialize();
+                if (last_dataString && last_dataString == dataString) {
+                    alert("Already submitted this!");
+                    return false;
+                }
+
                 var series_no = $("#Series_Id").val();
                 if(series_no =="")
                 {
@@ -72,7 +78,8 @@
                     url:"index.php/test/insert",
                     data:dataString,
                     success: function() { 
-                        $('#message').html("<span style='color:yellow;background:green'>Saved</span>").hide().fadeIn(500).fadeOut(500);
+                        $('#message').html("<span style='color:yellow;background:green'>Saved</span>").hide().fadeIn(700);
+                        last_dataString = dataString;
                     } 
 
                 });    
@@ -83,6 +90,8 @@
             
         function showCoords(image_to_crop, c)
         {
+            $('#message').hide();
+
             $("#Series_Id").val(image_to_crop.attr('data-series-id'));
 
             $('#x').val(c.x);
