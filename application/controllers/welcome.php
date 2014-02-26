@@ -29,11 +29,12 @@ class Welcome extends CI_Controller {
         $this->load->dbutil();
         $this->load->helper('download');
 
-        $query = $this->db->query("SELECT img_base, x1,y1,x2,y2,series_no FROM Boundingbox");
+        $query = $this->db->query("SELECT img_base,x1,y1,x2,y2,mark_date,user,series_no FROM Boundingbox");
         $delimiter = ",";
         $csv_data = $this->dbutil->csv_from_result($query, $delimiter);
         $csv_data = str_replace('"', "", $csv_data);
-
+        $csv_data = preg_replace("/,\n/", "\n", $csv_data);     // remove the trailing "," - a bug, see: http://ellislab.com/forums/viewthread/228656/
+        
         date_default_timezone_set('America/New_York');
         $date = date('Y_m_d');
         $csv_filename = "boundingbox_$date.csv";
