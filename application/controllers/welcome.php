@@ -29,7 +29,7 @@ class Welcome extends CI_Controller {
         $this->load->dbutil();
         $this->load->helper('download');
 
-        $query = $this->db->query("SELECT img_base,x1,y1,x2,y2,mark_date,user,series_no FROM Boundingbox");
+        $query = $this->db->query("SELECT img_base,x1,y1,x2,y2,mark_date,user,series_no FROM Boundingbox GROUP BY img_base,x1,x2,y1,y2");
         $delimiter = ",";
         $csv_data = $this->dbutil->csv_from_result($query, $delimiter);
         $csv_data = str_replace('"', "", $csv_data);
